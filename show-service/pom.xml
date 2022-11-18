@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from com.xyz.repository -->
 	</parent>
 	<groupId>com.xyz</groupId>
-	<artifactId>user-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>user-service</name>
-	<description>Demo project for Spring Boot</description>
+	<artifactId>show-service</artifactId>
+	<version>1.0</version>
+	<name>show-service</name>
+	<description>Demo project for Spring Bootbookyourmovie app</description>
 
 	<properties>
 		<java.version>11</java.version>
