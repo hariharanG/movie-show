@@ -1,0 +1,435 @@
+<div class="main" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="image"> <a (click)="home()" class="pointer"><img src="../../../assets/book-it.jpg"
+                style="width: 75%"></a>
+    </div>
+
+    <div class="search" fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <input placeholder="Do Online Booking For Any Movie..." style=" width: 229%; padding: 5%;">
+        </div>
+        <div class="button">
+            <button mat-raised-button (click)="Search()" color="primary">Search</button>
+        </div>
+        <div class="login">
+            <button mat-mini-fab style="background-color: darkolivegreen" [matMenuTriggerFor]="menu">
+                {{firstName | slice:0:1}}</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="profile()">{{firstName}}</button>
+                <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+            </mat-menu>
+        </div>
+    </div>
+</div>
+
+<!-- seatPurpose -->
+<div class="inputForm" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="profileNames">
+        <div fxLayout="row" fxLayoutGap="6px">
+            <div>Name : {{firstName}} </div>
+            <div>{{lastName}} </div>
+        </div>
+        <div>Number of Seats : <input type="number" placeholder="select your seats..." id="Numseats" required></div>
+        <button onclick="takeData()">Start Selecting</button>
+    </div>
+</div>
+
+
+<!-- <body onload="onLoaderFunc()"> -->
+
+<div class="WholeDiv" fxLayout="row" fxLayoutGap="10px">
+    <div class="seatStructure" fxLayout="column" fxLayoutAlign="space-between center">
+
+        <table id="seatsBlock">
+
+            <p id="notification"></p>
+            <div class="seatStructure" fxLayout="row" fxLayoutGap="6px">
+                <div class="abc">
+                    <tr>
+                        <td rowspan="40">
+                            <div class="smallBox greenBox">Selected Seat</div> <br />
+                            <div class="smallBox redBox">Reserved Seat</div><br />
+                            <div class="smallBox emptyBox">Empty Seat</div><br />
+                        </td>
+
+                        <br />
+                    </tr>
+                </div>
+                <div class="def">
+                    <!-- *ngFor="let count of this.seat">
+                    <div *ngIf="(count === value)"></div> -->
+                    <td colspan="14">
+                        <div class="screen">SCREEN</div>
+                    </td>
+                    <tr>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td></td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                    </tr>
+
+                    <div class="def" *ngFor="let count of newdata">
+                        <!-- <div *ngIf="(count === 'A1')"> -->
+                        {{count}}
+                            <tr>
+                                <td>A</td>
+                                <td><input type="checkbox" class="seats" value="A1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td class="seatGap"></td>
+                                <td><input type="checkbox" class="seats" value="A6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="A12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>B</td>
+                                <td><input type="checkbox" class="seats" value="B1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="B6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="B12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>C</td>
+                                <td><input type="checkbox" class="seats" value="C1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="C6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="C12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>D</td>
+                                <td><input type="checkbox" class="seats" value="D1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="D6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="D12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>E</td>
+                                <td><input type="checkbox" class="seats" value="E1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="E6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="E12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr class="seatVGap"></tr>
+
+                            <tr>
+                                <td>F</td>
+                                <td><input type="checkbox" class="seats" value="F1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="F6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="F12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>G</td>
+                                <td><input type="checkbox" class="seats" value="G1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="G6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="G12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>H</td>
+                                <td><input type="checkbox" class="seats" value="H1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="H6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="H12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>I</td>
+                                <td><input type="checkbox" class="seats" value="I1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="I6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="I12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>J</td>
+                                <td><input type="checkbox" class="seats" value="J1"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J2"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J3"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J4"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J5"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td></td>
+                                <td><input type="checkbox" class="seats" value="J6"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J7"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J8"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J9"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J10"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J11"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                                <td><input type="checkbox" class="seats" value="J12"
+                                        [disabled]="ReadOnlyStyleGuideNotes"></td>
+                            </tr>
+                        </div>
+                    <!-- </div> -->
+                    </div>
+            </div>
+
+        </table>
+
+        <br /><button class="buttonForConfirmSelection" (click)="payment()">Confirm
+            Selection</button>
+
+        <!-- <br /><button click="payment()" style="margin-left: -76%; margin-bottom: 2%;">Confirm
+            Selection</button> -->
+
+    </div>
+
+    <div class="MovieDetails" fxLayout="column" fxLayoutGap="14px">
+        <div>MovieName : {{message.result[0].movieName}}</div>
+        <div>Time : 10:00 AM</div>
+        <div>Date : 22/10/2019</div>
+        <div>Place : Goregoan, Mumbai</div>
+    </div>
+</div>
+
+
+<!-- <div class="displayerBoxes">
+
+        <table class="Displaytable">
+            <tr>
+                <th>Name</th>
+                <th>Number of Seats</th>
+                <th>Seats</th>
+            </tr>
+            <tr>
+                <td><textarea id="nameDisplay"></textarea></td>
+                <td><textarea id="NumberDisplay"></textarea></td>
+                <td><textarea id="seatsDisplay"></textarea></td>
+            </tr>
+        </table>
+
+    </div>
+
+<br /><br /> -->
+
+
+<div class="footers">
+    <div fxLayout="row" fxLayout="row" fxLayoutGap="29%" style="margin-top:-4%; margin-bottom:-4%;">
+        <div>
+            <h2>About</h2>
+            <p>BookIt,BandraWest,Mumbai</p>
+            <p style="margin-top: -9%;">Maharashtra, 400050</p>
+        </div>
+        <div>
+            <h2>Contacts</h2>
+            <p>inquiry@bookIt.com</p>
+        </div>
+        <div>
+            <h2>Links</h2>
+            <share-buttons show="3" style=" margin-left: -45%; margin-bottom: 6%; "></share-buttons>
+        </div>
+
+    </div>
+</div>

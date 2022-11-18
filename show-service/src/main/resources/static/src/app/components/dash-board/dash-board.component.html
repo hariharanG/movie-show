@@ -1,0 +1,84 @@
+<div class="main" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="image"> <a (click)="home()" class="pointer"><img src="../../../assets/book-it.jpg"
+                style="width: 75%"></a>
+    </div>
+
+    <div class="search" fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <input placeholder="Do Online Booking For Any Movie..." [formControl]="movieName"
+                style=" width: 229%; padding: 4%;">
+        </div>
+        <div class="button">
+            <button mat-raised-button (click)="Search()" color="primary">Search</button>
+        </div>
+        <div class="login">
+            <button mat-mini-fab style="background-color: darkolivegreen" [matMenuTriggerFor]="menu">
+                {{firstName | slice:0:1}}</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="profile()">{{firstName}}</button>
+                <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+            </mat-menu>
+        </div>
+    </div>
+</div>
+
+<mat-card fxLayout="row" fxLayoutAlign="start start">
+    <mat-card class="divForLinks" fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="20px">
+        <button mat-flat-button="" (click)="home()">Home</button>
+        <button mat-flat-button="" (click)="profile()">Profile</button>
+        <button mat-flat-button="" (click)="movielist()">Movies</button>
+        <button mat-flat-button="" (click)="booking()">Booking</button>
+        <button mat-flat-button="" (click)="newRelease()">New Release</button>
+        <button mat-flat-button="" (click)="categorie()">Categories</button>
+        <button mat-flat-button="" (click)="Series()">Series</button>
+        <button mat-flat-button="" (click)="booking()">Events</button>
+    </mat-card>
+
+    <!-- 
+        Image size = 380/430
+     -->
+    <div class="divForSlider">
+        <slideshow [height]="height" [minHeight]="'460px'" [autoPlay]="true" [showArrows]="true" [showDots]="true"
+            [imageUrls]="imagesUrl" [lazyLoad]="imagesUrl?.length > 1" [autoPlayWaitForLazyLoad]="true"
+            [showDots]="true">
+        </slideshow>
+    </div>
+
+    <!-- 
+        Image size = 128/170
+     -->
+    <div class="rowFlex" fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="end">
+        <div class="rowFlex" fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="end">
+            <a (click)="movies('War')" class="pointer"><img src="../../../assets/war--1.jpg"></a>
+            <a (click)="movies('CaptainAmerica')" class="pointer"><img
+                    src="../../../assets/captainAmerica---small.png"></a>
+            <a (click)="movies('Interstellar')" class="pointer"><img src="../../../assets//intersteller-small.jpg"></a>
+        </div>
+
+        <div class="rowFlex" fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="end">
+            <a (click)="movies('Captain Marvel')" class="pointer"> <img
+                    src="../../../assets/captainMarvel---small.jpg"></a>
+            <a (click)="movies('Batman')" class="pointer"><img src="../../../assets/batman----1.jpg"></a>
+            <a (click)="movies('Badla')" class="pointer"> <img src="../../../assets/images (3).jpg"></a>
+        </div>
+    </div>
+    <!-- </div> -->
+</mat-card>
+
+<div class="footers">
+    <div fxLayout="row" fxLayout="row" fxLayoutGap="29%" style="margin-top:-4%; margin-bottom:-4%;">
+        <div>
+            <h2>About</h2>
+            <p>BookIt,BandraWest,Mumbai</p>
+            <p style="margin-top: -9%;">Maharashtra, 400050</p>
+        </div>
+        <div>
+            <h2>Contacts</h2>
+            <p>inquiry@bookIt.com</p>
+        </div>
+        <div>
+            <h2>Links</h2>
+            <share-buttons show="3" style=" margin-left: -45%; margin-bottom: 6%; "></share-buttons>
+        </div>
+    </div>
+</div>
