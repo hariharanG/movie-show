@@ -207,21 +207,18 @@ public class ShowServiceImpl implements ShowService {
 		return payRepo.save(payment);
 	}
 	
-	public Payment updatePayment(Long paymentId, Payment payment) throws Throwable {
+	public Payment updatePayment(Long paymentId, Payment payment) {
 		log.debug("Inside updatePayment");
 		if(Objects.nonNull(paymentId)) {
 			Optional<Payment> book = payRepo.findById(paymentId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+payment);
 			}
-			if(book.isEmpty()) {
-				throw new CustomException();
-			}
 		}
 		return payRepo.save(payment);
 	}
 	
-	public void removePayment(Long paymentId) {
+	public void removePay(Long paymentId) {
 		log.debug("Inside removePayment");
 		payRepo.deleteById(paymentId);
 	}
@@ -345,4 +342,5 @@ public class ShowServiceImpl implements ShowService {
 		log.debug("Inside removeCinema");
 		cineRepo.deleteById(cinemaId);
 	}
+
 }
