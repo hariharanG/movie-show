@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xyz.exception.CustomException;
-import com.xyz.model.City;
 import com.xyz.service.ShowService;
 
 import lombok.extern.slf4j.Slf4j;

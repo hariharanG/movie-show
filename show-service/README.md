@@ -6,7 +6,9 @@
 * H2 (mySQL).
 * Exception handling
 * Git
-* Maven
+* Maven 
+##### To build all rest API's and SwaggerUI
+$ mvn clean install
 
 * UI 
 Refs: https://github.com/Bhupi2508/Book-Movie-Ticket-Frontend-Angular
@@ -17,8 +19,11 @@ Refs: https://github.com/Bhupi2508/Book-Movie-Ticket-Frontend-Angular
 
 
 To RunApp
+cd show-service/src/main/resources/static
+and then
 ** npm install	
-** npm start 
+** npm start  -> Navigate to http://localhost:4200 in any browser..
+optional
 ** npm update
 
 (or) 
