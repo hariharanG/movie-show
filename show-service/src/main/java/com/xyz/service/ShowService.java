@@ -30,6 +30,8 @@ public interface ShowService {
 
 	List<Booking> getBookings();
 	
+	List<ShowSeat> getShowSeats();
+	
 	void removeCinemaHall(Long cinemaHallId);
 	void removeCinemaSeat(Long cinemaSeatId);
 	void removeCinema(Long cinemaId);

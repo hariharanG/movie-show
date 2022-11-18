@@ -106,6 +106,11 @@ public class ShowServiceImpl implements ShowService {
 		return bookingsRepo.findAll();
 	}
 	
+	public List<ShowSeat> getShowSeats(){
+		log.debug("Inside getShowSeats");
+		return showSeatsRepo.findAll();
+	}
+	
 	public Booking addBooking(Booking booking) {
 		log.debug("Inside addBooking");
 		return bookingsRepo.save(booking);
