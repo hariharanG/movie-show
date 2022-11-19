@@ -31,7 +31,12 @@ the below
 $ ng serve
 ..
 ..
+i-e: 
+http://localhost:8080/your-app-root/swagger-ui/
 
+In our case, by the way, the exact URL will be:
+
+http://localhost:8080/spring-security-rest/api/swagger-ui/
 Thanks
 Hari Ganapathy 
 Tech Evangalist
