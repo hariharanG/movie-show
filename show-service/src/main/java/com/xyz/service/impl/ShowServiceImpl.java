@@ -28,7 +28,7 @@ public class ShowServiceImpl implements ShowService {
 	
 	private static Logger log = (Logger) LoggerFactory.getLogger(ShowController.class);
 	
-	@Autowired
+	@Autowired(required = true)
 	private BookingRepository bookingsRepo;
 	@Autowired
 	private CinemaRepository cineRepo;

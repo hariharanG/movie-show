@@ -19,7 +19,8 @@ public class Initializer implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		/*
-		 * Stream.of( Dt initialize here ).forEach(e -> //Repo.save(e) //
+		 * Stream.of( Data initialize here ).forEach(e ->
+		 *  Repo  --> to save( e ) 
 		 * showRepository.save(Show.name(e).build()) );
 		 */
 

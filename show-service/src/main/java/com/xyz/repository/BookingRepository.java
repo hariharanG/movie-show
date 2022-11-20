@@ -9,4 +9,4 @@ import com.xyz.model.Booking;
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 	// data abstraction
-}
+}	
