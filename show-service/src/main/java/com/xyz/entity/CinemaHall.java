@@ -3,6 +3,8 @@
  */
 package com.xyz.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name="cinemaHall")
-public class CinemaHall {
+public class CinemaHall implements Serializable  {
 	@Column(name = "cinemaHall_id")
 	@Id
 	@GeneratedValue( strategy = GenerationType.SEQUENCE)

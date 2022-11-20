@@ -3,6 +3,7 @@
  */
 package com.xyz.entity;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name="payment")
-public class Payment {
+public class Payment implements Serializable {
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.SEQUENCE)

@@ -33,7 +33,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 public class DBConfig {
 
-@Value("${spring.datasource.driver-class-name}")
+@Value("${spring.datasource.driverClassName}")
 public String driver;
 
 @Value("${spring.datasource.url}")

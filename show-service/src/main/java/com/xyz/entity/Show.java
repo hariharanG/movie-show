@@ -3,6 +3,7 @@
  */
 package com.xyz.entity;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import javax.persistence.Column;
@@ -30,7 +31,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name="show")
-public class Show {
+public class Show implements Serializable {
 
 	@ManyToOne
     @JoinColumn(name="cinemaHall_id", nullable=true)

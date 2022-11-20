@@ -28,26 +28,26 @@ public class ShowServiceImpl implements ShowService {
 	
 	private static Logger log = (Logger) LoggerFactory.getLogger(ShowController.class);
 	
-	@Autowired(required = true)
-	private BookingRepository bookingsRepo;
 	@Autowired
-	private CinemaRepository cineRepo;
+	private BookingRepository bookingRepository;
 	@Autowired
-	private CinemaHallRepository cineHallsRepo;
+	private CinemaRepository cinemaRepository;
 	@Autowired
-	private CinemaSeatRepository cineSeatsRepo;
+	private CinemaHallRepository cineHallRepository;
 	@Autowired
-	private CityRepository citiesRepo;
+	private CinemaSeatRepository cinemaSeatRepository;
 	@Autowired
-	private MovieRepository moviesRepo;
+	private CityRepository cityRepository;
 	@Autowired
-	private PaymentRepository payRepo;
+	private MovieRepository movieRepository;
 	@Autowired
-	private ShowRepository showsRepo;
+	private PaymentRepository paymentRepository;
 	@Autowired
-	private UserRepository usersRepo;
+	private ShowRepository showRepository;
 	@Autowired
-	private ShowSeatRepository showSeatsRepo;
+	private UserRepository userRepository;
+	@Autowired
+	private ShowSeatRepository showSeatRepository;
 	
 	public ShowServiceImpl() {
 		log.info("Show service is up! now !");
@@ -56,70 +56,70 @@ public class ShowServiceImpl implements ShowService {
 	@Override
 	public List<CinemaHall> getCinemaHall() {
 		log.debug("Inside getCinemaHalls");
-		return cineHallsRepo.findAll();
+		return cineHallRepository.findAll();
 	}
 
 	@Override
 	public List<Cinema> getCinema() {
 		log.debug("Inside getCinemas");
-		return cineRepo.findAll();
+		return cinemaRepository.findAll();
 	}
 
 	@Override
 	public List<City> getCities() {
 		log.debug("Inside getCities");
-		return citiesRepo.findAll();
+		return cityRepository.findAll();
 	}
 
 	@Override
 	public List<CinemaSeat> getCinemaSeat() {
 		log.debug("Inside getCinemaSeats");
-		return cineSeatsRepo.findAll();
+		return cinemaSeatRepository.findAll();
 	}
 
 	@Override
 	public List<Movie> getMovies() {
 		log.debug("Inside getMovies");
-		return moviesRepo.findAll();
+		return movieRepository.findAll();
 	}
 
 	@Override
 	public List<Show> getShows() {
 		log.debug("Inside getShows");
-		return showsRepo.findAll();
+		return showRepository.findAll();
 	}
 
 	@Override
 	public List<Payment> getPayments() {
 		log.debug("Inside getPayments");
-		return payRepo.findAll();
+		return paymentRepository.findAll();
 	}
 
 	@Override
 	public List<User> getUsers() {
 		log.debug("Inside getUsers");
-		return usersRepo.findAll();
+		return userRepository.findAll();
 	}
 	
 	public List<Booking> getBookings(){
 		log.debug("Inside getBookings");
-		return bookingsRepo.findAll();
+		return bookingRepository.findAll();
 	}
 	
 	public List<ShowSeat> getShowSeats(){
 		log.debug("Inside getShowSeats");
-		return showSeatsRepo.findAll();
+		return showSeatRepository.findAll();
 	}
 	
 	public Booking addBooking(Booking booking) {
 		log.debug("Inside addBooking");
-		return bookingsRepo.save(booking);
+		return bookingRepository.save(booking);
 	}
 	
 	public Booking updateBooking(Long bookingId, Booking booking) throws Throwable {
 		log.debug("Inside updateBooking");
 		if(Objects.nonNull(bookingId)) {
-			Optional<Booking> book = bookingsRepo.findById(bookingId);
+			Optional<Booking> book = bookingRepository.findById(bookingId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+booking);
 			}
@@ -127,23 +127,23 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return bookingsRepo.save(booking);
+		return bookingRepository.save(booking);
 	}
 	
 	public void removeBooking(Long bookingId) {
 		log.debug("Inside removeBooking");
-		bookingsRepo.deleteById(bookingId);
+		bookingRepository.deleteById(bookingId);
 	}
 	
 	public User addUser(User user) {
 		log.debug("Inside addUser");
-		return usersRepo.save(user);
+		return userRepository.save(user);
 	}
 	
 	public User updateUser(Long userId, User user) throws Throwable {
 		log.debug("Inside updateUser");
 		if(Objects.nonNull(userId)) {
-			Optional<User> book = usersRepo.findById(userId);
+			Optional<User> book = userRepository.findById(userId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+user);
 			}
@@ -151,23 +151,23 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return usersRepo.save(user);
+		return userRepository.save(user);
 	}
 	
 	public void removeUser(Long userId) {
 		log.debug("Inside removeUser");
-		usersRepo.deleteById(userId);
+		userRepository.deleteById(userId);
 	}
 	
 	public ShowSeat addShowSeat(ShowSeat showSeat) {
 		log.debug("Inside addShowSeat");
-		return showSeatsRepo.save(showSeat);
+		return showSeatRepository.save(showSeat);
 	}
 	
 	public ShowSeat updateShowSeat(Long showSeatId, ShowSeat showSeat) throws Throwable {
 		log.debug("Inside updateShowSeat");
 		if(Objects.nonNull(showSeatId)) {
-			Optional<ShowSeat> book = showSeatsRepo.findById(showSeatId);
+			Optional<ShowSeat> book = showSeatRepository.findById(showSeatId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+showSeat);
 			}
@@ -175,23 +175,23 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return showSeatsRepo.save(showSeat);
+		return showSeatRepository.save(showSeat);
 	}
 	
 	public void removeShowSeat(Long showSeatId) {
 		log.debug("Inside removeShowSeat");
-		showSeatsRepo.deleteById(showSeatId);
+		showSeatRepository.deleteById(showSeatId);
 	}
 	
 	public Show addShow(Show show) {
 		log.debug("Inside addShow");
-		return showsRepo.save(show);
+		return showRepository.save(show);
 	}
 	
 	public Show updateShow(Long showId, Show show) throws Throwable {
 		log.debug("Inside updateShow");
 		if(Objects.nonNull(showId)) {
-			Optional<Show> book = showsRepo.findById(showId);
+			Optional<Show> book = showRepository.findById(showId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+show);
 			}
@@ -199,44 +199,44 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return showsRepo.save(show);
+		return showRepository.save(show);
 	}
 	
 	public void removeShow(Long showId) {
 		log.debug("Inside removeShow");
-		showsRepo.deleteById(showId);
+		showRepository.deleteById(showId);
 	}
 	
 	public Payment addPayment(Payment payment) {
 		log.debug("Inside addPayment");
-		return payRepo.save(payment);
+		return paymentRepository.save(payment);
 	}
 	
 	public Payment updatePayment(Long paymentId, Payment payment) {
 		log.debug("Inside updatePayment");
 		if(Objects.nonNull(paymentId)) {
-			Optional<Payment> book = payRepo.findById(paymentId);
+			Optional<Payment> book = paymentRepository.findById(paymentId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+payment);
 			}
 		}
-		return payRepo.save(payment);
+		return paymentRepository.save(payment);
 	}
 	
 	public void removePay(Long paymentId) {
 		log.debug("Inside removePayment");
-		payRepo.deleteById(paymentId);
+		paymentRepository.deleteById(paymentId);
 	}
 	
 	public Movie addMovie(Movie movie) {
 		log.debug("Inside addMovie");
-		return moviesRepo.save(movie);
+		return movieRepository.save(movie);
 	}
 	
 	public Movie updateMovie(Long movieId, Movie movie) throws Throwable {
 		log.debug("Inside updateMovie");
 		if(Objects.nonNull(movieId)) {
-			Optional<Movie> book = moviesRepo.findById(movieId);
+			Optional<Movie> book = movieRepository.findById(movieId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+movie);
 			}
@@ -244,23 +244,23 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return moviesRepo.save(movie);
+		return movieRepository.save(movie);
 	}
 	
 	public void removeMovie(Long movieId) {
 		log.debug("Inside removeMovie");
-		moviesRepo.deleteById(movieId);
+		movieRepository.deleteById(movieId);
 	}
 	
 	public City addCity(City city) {
 		log.debug("Inside addCity");
-		return citiesRepo.save(city);
+		return cityRepository.save(city);
 	}
 	
 	public City updateCity(Long cityId, City city) throws Throwable {
 		log.debug("Inside updateCity");
 		if(Objects.nonNull(cityId)) {
-			Optional<City> book = citiesRepo.findById(cityId);
+			Optional<City> book = cityRepository.findById(cityId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+city);
 			}
@@ -268,23 +268,23 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return citiesRepo.save(city);
+		return cityRepository.save(city);
 	}
 	
 	public void removeCity(Long cityId) {
 		log.debug("Inside removeCity");
-		citiesRepo.deleteById(cityId);
+		cityRepository.deleteById(cityId);
 	}
 	
 	public CinemaSeat addCinemaSeat(CinemaSeat cinemaSeat) {
 		log.debug("Inside addCinemaSeat");
-		return cineSeatsRepo.save(cinemaSeat);
+		return cinemaSeatRepository.save(cinemaSeat);
 	}
 	
 	public CinemaSeat updateCinemaSeat(Long cinemaSeatId, CinemaSeat cinemaSeat) throws Throwable {
 		log.debug("Inside updateCinemaSeat");
 		if(Objects.nonNull(cinemaSeatId)) {
-			Optional<CinemaSeat> book = cineSeatsRepo.findById(cinemaSeatId);
+			Optional<CinemaSeat> book = cinemaSeatRepository.findById(cinemaSeatId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+cinemaSeat);
 			}
@@ -292,23 +292,23 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return cineSeatsRepo.save(cinemaSeat);
+		return cinemaSeatRepository.save(cinemaSeat);
 	}
 	
 	public void removeCinemaSeat(Long cinemaSeatId) {
 		log.debug("Inside removeCinemaSeat");
-		cineSeatsRepo.deleteById(cinemaSeatId);
+		cinemaSeatRepository.deleteById(cinemaSeatId);
 	}
 	
 	public CinemaHall addCinemaHall(CinemaHall cinemaHall) {
 		log.debug("Inside addCinemaHall");
-		return cineHallsRepo.save(cinemaHall);
+		return cineHallRepository.save(cinemaHall);
 	}
 	
 	public CinemaHall updateCinemaHall(Long cinemaHallId, CinemaHall cinemaHall) throws Throwable {
 		log.debug("Inside updateCinemaHall");
 		if(Objects.nonNull(cinemaHallId)) {
-			Optional<CinemaHall> book = cineHallsRepo.findById(cinemaHallId);
+			Optional<CinemaHall> book = cineHallRepository.findById(cinemaHallId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+cinemaHall);
 			}
@@ -316,23 +316,23 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return cineHallsRepo.save(cinemaHall);
+		return cineHallRepository.save(cinemaHall);
 	}
 	
 	public void removeCinemaHall(Long cinemaHallId) {
 		log.debug("Inside removeCinemaHall");
-		cineHallsRepo.deleteById(cinemaHallId);
+		cineHallRepository.deleteById(cinemaHallId);
 	}
 	
 	public Cinema addCinema(Cinema cinema) {
 		log.debug("Inside addCinema");
-		return cineRepo.save(cinema);
+		return cinemaRepository.save(cinema);
 	}
 	
 	public Cinema updateCinema(Long cinemaId, Cinema cinema) throws Throwable {
 		log.debug("Inside updateCinema");
 		if(Objects.nonNull(cinemaId)) {
-			Optional<Cinema> book = cineRepo.findById(cinemaId);
+			Optional<Cinema> book = cinemaRepository.findById(cinemaId);
 			if(book.isPresent()) {
 				log.info("Old value="+book +" & New value="+cinema);
 			}
@@ -340,12 +340,12 @@ public class ShowServiceImpl implements ShowService {
 				throw new CustomException();
 			}
 		}
-		return cineRepo.save(cinema);
+		return cinemaRepository.save(cinema);
 	}
 	
 	public void removeCinema(Long cinemaId) {
 		log.debug("Inside removeCinema");
-		cineRepo.deleteById(cinemaId);
+		cinemaRepository.deleteById(cinemaId);
 	}
 
 }
